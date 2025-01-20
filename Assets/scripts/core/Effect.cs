@@ -31,11 +31,11 @@ public class Effect
     {
         if (Type == EffectType.Burn)
         {
-            effector.TakeDamage(1);
+            effector.TakeDamage(GameConstants.BURN_TICK_DAMAGE);
         }
         if (Type == EffectType.Regeneration)
         {
-            effector.Heal(2);
+            effector.Heal(GameConstants.REGENERATION_TICK_HEAL);
         }
     }
 }

@@ -24,18 +24,18 @@ public class GameServer
                     break;
                 case AbilityType.Fireball:
                     battleEntity = session.GetAnyEnemyOf(user);
-                    battleEntity.TakeDamage(5);
-                    var effect = new Effect(EffectType.Burn, 5);
+                    battleEntity.TakeDamage(GameConstants.REGENERATION_TICK_HEAL);
+                    var effect = new Effect(EffectType.Burn, GameConstants.FIREBALL_DURATION);
                     battleEntity.ApplyEffect(effect);
                     user.Abilities[AbilityType.Fireball].IsAppliedWithEffect(effect);
                     break;
                 case AbilityType.Regeneration:
-                    effect = new Effect(EffectType.Regeneration, 3);
+                    effect = new Effect(EffectType.Regeneration, GameConstants.REGENERATION_DURATION);
                     user.ApplyEffect(effect);
                     user.Abilities[AbilityType.Regeneration].IsAppliedWithEffect(effect);
                     break;
                 case AbilityType.Barrier:
-                    effect = new Effect(EffectType.Barrier, 2, 5);
+                    effect = new Effect(EffectType.Barrier, GameConstants.BARRIER_DURATION, GameConstants.BARRIER_STRENGTH);
                     user.ApplyEffect(effect);
                     user.Abilities[AbilityType.Barrier].IsAppliedWithEffect(effect);
                     break;

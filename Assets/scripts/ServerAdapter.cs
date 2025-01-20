@@ -30,7 +30,7 @@ public class ServerAdapter
     /// <returns></returns>
     public BattleEntity GetCurrentPlayer()
     {
-        return CurrentClientSession.Team1.ElementAt(0);
+        return CurrentClientSession.Team1.First();
     }
 
     /// <summary>
@@ -39,7 +39,7 @@ public class ServerAdapter
     /// <returns></returns>
     public BattleEntity GetAnyEnemy()
     {
-        return CurrentClientSession.Team2.ElementAt(0);
+        return CurrentClientSession.Team2.First();
     }
 
     public bool UseAbility(AbilityType abilityType)
@@ -58,7 +58,7 @@ public class ServerAdapter
     /// <returns></returns>
     private BattleEntity GetCurrentServerPlayer()
     {
-        return SurrentServerSession.Team1.ElementAt(0);
+        return SurrentServerSession.Team1.First();
     }
 
 }

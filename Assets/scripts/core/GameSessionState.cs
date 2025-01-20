@@ -87,14 +87,16 @@ public class GameSessionState
         Disposed?.Invoke();
     }
 
-    BattleEntity CreateGenericBattleEntity(string name, int maxHp = 50)
+    BattleEntity CreateGenericBattleEntity(string name, int maxHp = -1)
     {
+        if (maxHp <= 0) maxHp = GameConstants.DEFAULT_MAX_HP;
+
         BattleEntity entity = new BattleEntity(name, maxHp);
-        entity.Abilities[AbilityType.Attack] = new Ability(AbilityType.Attack, 0);
-        entity.Abilities[AbilityType.Barrier] = new Ability(AbilityType.Barrier, 4);
-        entity.Abilities[AbilityType.Regeneration] = new Ability(AbilityType.Regeneration, 5);
-        entity.Abilities[AbilityType.Fireball] = new Ability(AbilityType.Fireball, 6);
-        entity.Abilities[AbilityType.Purify] = new Ability(AbilityType.Purify, 5);
+        entity.Abilities[AbilityType.Attack] = new Ability(AbilityType.Attack, GameConstants.ATTACK_CD);
+        entity.Abilities[AbilityType.Barrier] = new Ability(AbilityType.Barrier, GameConstants.BARRIER_CD);
+        entity.Abilities[AbilityType.Regeneration] = new Ability(AbilityType.Regeneration, GameConstants.REGENERATION_CD);
+        entity.Abilities[AbilityType.Fireball] = new Ability(AbilityType.Fireball, GameConstants.FIREBALL_CD);
+        entity.Abilities[AbilityType.Purify] = new Ability(AbilityType.Purify, GameConstants.PURIFY_CD);
         return entity;
     }
 }
